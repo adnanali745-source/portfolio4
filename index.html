@@ -97,6 +97,102 @@ footer{
     margin-top:50px;
 }
 
+/* Contact Icons */
+.contact-icons{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.contact-icon{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:32px;
+    backdrop-filter:blur(10px);
+}
+
+.contact-icon:hover{
+    transform:scale(1.15);
+    background:rgba(0,245,212,0.3);
+}
+
+.contact-modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+.contact-modal.active{
+    display:flex;
+}
+
+.modal-content{
+    background:linear-gradient(135deg,#203a43,#2c5364);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    max-width:400px;
+    width:90%;
+    animation:fadeUp 0.4s ease;
+}
+
+.modal-content h3{
+    font-size:24px;
+    margin-bottom:15px;
+    color:#00f5d4;
+}
+
+.modal-content p{
+    font-size:18px;
+    margin-bottom:20px;
+    word-break:break-all;
+}
+
+.modal-close{
+    padding:10px 25px;
+    background:#00f5d4;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.modal-close:hover{
+    background:white;
+}
+
+.modal-link{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 25px;
+    background:#00f5d4;
+    border-radius:25px;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.modal-link:hover{
+    background:white;
+}
+
 /* Animations */
 @keyframes fadeDown{
     from{opacity:0; transform:translateY(-50px);}
@@ -143,21 +239,61 @@ footer{
 
 <section>
     <h2>Contact</h2>
-    <div class="card-container">
-        <div class="card">
-            📞 Phone: 03023771520
-        </div>
-        <div class="card">
-            📧 Email: adnanali745@gmail.com
-        </div>
-        <div class="card">
-            🔗 LinkedIn:
-            <a href="https://www.linkedin.com/in/adnan-ali-97b946361" target="_blank" style="color:#00f5d4;">
-                Click Here
-            </a>
-        </div>
+    <div class="contact-icons">
+        <div class="contact-icon" onclick="showContact('phone')" title="Phone">📞</div>
+        <div class="contact-icon" onclick="showContact('gmail')" title="Gmail">📧</div>
+        <div class="contact-icon" onclick="showContact('linkedin')" title="LinkedIn">🔗</div>
     </div>
 </section>
+
+<div class="contact-modal" id="contactModal">
+    <div class="modal-content">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDetail"></p>
+        <a href="#" class="modal-link" id="modalAction" style="display:none;"></a>
+        <button class="modal-close" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+function showContact(type){
+    const modal = document.getElementById('contactModal');
+    const title = document.getElementById('modalTitle');
+    const detail = document.getElementById('modalDetail');
+    const action = document.getElementById('modalAction');
+    
+    if(type === 'phone'){
+        title.textContent = 'Phone Number';
+        detail.textContent = '03023771520';
+        action.style.display = 'none';
+    } else if(type === 'gmail'){
+        title.textContent = 'Gmail';
+        detail.textContent = 'adnanali745@gmail.com';
+        action.href = 'mailto:adnanali745@gmail.com';
+        action.textContent = 'Send Email';
+        action.style.display = 'inline-block';
+    } else if(type === 'linkedin'){
+        title.textContent = 'LinkedIn';
+        detail.textContent = 'adnan-ali-97b946361';
+        action.href = 'https://www.linkedin.com/in/adnan-ali-97b946361';
+        action.target = '_blank';
+        action.textContent = 'Visit Profile';
+        action.style.display = 'inline-block';
+    }
+    
+    modal.classList.add('active');
+}
+
+function closeModal(){
+    document.getElementById('contactModal').classList.remove('active');
+}
+
+document.getElementById('contactModal').addEventListener('click', function(e){
+    if(e.target === this){
+        closeModal();
+    }
+});
+</script>
 
 <footer>
     © 2026 Adnan Ali | All Rights Reserved
