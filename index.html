@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adnan Ali | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+header{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+header h1{
+    font-size:60px;
+    font-weight:700;
+    animation: fadeDown 1.5s ease;
+}
+
+header p{
+    font-size:22px;
+    margin-top:10px;
+    color:#00f5d4;
+    animation: fadeUp 2s ease;
+}
+
+.btn{
+    margin-top:25px;
+    padding:12px 30px;
+    background:#00f5d4;
+    border:none;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.4s;
+    text-decoration:none;
+    color:black;
+}
+
+.btn:hover{
+    background:white;
+    transform:scale(1.1);
+}
+
+section{
+    padding:80px 10%;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:35px;
+    position:relative;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.1);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,0.2);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:black;
+    margin-top:50px;
+}
+
+/* Animations */
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Adnan Ali</h1>
+    <p>Data Science Enthusiast | AI Learner | Python Developer</p>
+    <a href="https://www.linkedin.com/in/adnan-ali-97b946361" target="_blank" class="btn">Visit My LinkedIn</a>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <div class="card-container">
+        <div class="card">
+            <p>
+                Passionate about Artificial Intelligence, Data Science, and Programming.
+                Skilled in Python, Pandas, SQL, and problem-solving.
+                Always learning and building practical projects.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <div class="card-container">
+        <div class="card">Python Programming</div>
+        <div class="card">Data Analysis (Pandas, NumPy)</div>
+        <div class="card">SQL & Databases</div>
+        <div class="card">Machine Learning (Beginner Level)</div>
+    </div>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <div class="card-container">
+        <div class="card">
+            📞 Phone: 03023771520
+        </div>
+        <div class="card">
+            📧 Email: adnanali745@gmail.com
+        </div>
+        <div class="card">
+            🔗 LinkedIn:
+            <a href="https://www.linkedin.com/in/adnan-ali-97b946361" target="_blank" style="color:#00f5d4;">
+                Click Here
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Adnan Ali | All Rights Reserved
+</footer>
+
+</body>
+</html>
